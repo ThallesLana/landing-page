@@ -11,10 +11,10 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Portfólio Responsivo',
-    description: 'Portfólio moderno e responsivo para mostrar minhas habilidades em desenvolvimento.',
-    technologies: ['React', 'TailwindCSS', 'TypeScript', 'React Hook Form', 'React Router'],
+    description: 'Este é meu portfólio pessoal, uma landing page moderna que apresenta minhas habilidades como desenvolvedor Full Stack, projetos realizados e tecnologias dominadas. O projeto foi desenvolvido com foco em performance, acessibilidade e experiência do usuário.',
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'React Router'],
     status: ProjectStatus.COMPLETED,
-    githubUrl: SOCIAL_MEDIA.github + 'LandingPage',
+    githubUrl: SOCIAL_MEDIA.github + 'landing-page',
     liveUrl: 'https://thalles-lana.dev'
   },
   {
