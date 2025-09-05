@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system inspirado no portfolio original do Thalles Lana - thalles-lana.dev
+Todas as cores devem ser HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+
+    /* Sistema de cores roxo/magenta inspirado no design original */
+    --primary: 295 100% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 300 65% 55%;
+    --primary-dark: 290 100% 25%;
+
+    --secondary: 320 30% 85%;
+    --secondary-foreground: 295 100% 35%;
+
+    --muted: 300 20% 90%;
+    --muted-foreground: 295 15% 45%;
+
+    --accent: 315 80% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 300 20% 88%;
+    --input: 300 20% 88%;
+    --ring: 295 100% 35%;
+
+    /* Gradientes principais */
+    --gradient-primary: linear-gradient(119deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    --gradient-hero: linear-gradient(163deg, hsl(240 38% 13%) 0%, rgb(9, 9, 121) 35%, rgba(0, 212, 255, 1) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.1), hsl(300 30% 95%));
+
+    /* Sombras elegantes */
+    --shadow-elegant: 0 20px 40px -12px hsl(295 100% 35% / 0.25);
+    --shadow-glow: 0 0 60px hsl(315 80% 60% / 0.4);
+    --shadow-card: 0 8px 32px hsl(295 50% 50% / 0.15);
+
+    /* Animações */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --button-color: #090979;
+  }
+
+  .dark {
+    --background: 290 100% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 295 50% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 295 50% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 315 80% 70%;
+    --primary-foreground: 295 100% 8%;
+    --primary-light: 320 70% 75%;
+    --primary-dark: 310 85% 60%;
+
+    --secondary: 295 30% 20%;
+    --secondary-foreground: 315 80% 70%;
+
+    --muted: 295 20% 25%;
+    --muted-foreground: 300 15% 65%;
+
+    --accent: 320 75% 65%;
+    --accent-foreground: 295 100% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 295 30% 25%;
+    --input: 295 30% 25%;
+    --ring: 315 80% 70%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(295 100% 25%), hsl(315 80% 45%));
+    --gradient-hero: linear-gradient(163deg, hsl(240 38% 8%) 0%, hsl(318 81% 25%) 76%, hsl(255 42% 6%) 92%);
+    --gradient-card: linear-gradient(145deg, hsl(295 50% 15%), hsl(300 30% 20%));
+
+    --shadow-elegant: 0 20px 40px -12px hsl(295 100% 15% / 0.6);
+    --shadow-glow: 0 0 60px hsl(315 80% 40% / 0.5);
+    --shadow-card: 0 8px 32px hsl(295 80% 20% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Dark Veil animations */
+@keyframes darkVeilMove {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-10px) translateY(5px) scale(1.05);
+  }
+  100% {
+    transform: translateX(5px) translateY(-10px) scale(0.95);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl;
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border) / 0.2);
+    box-shadow: var(--shadow-card);
+  }
+
+  .tech-icon {
+    @apply transition-all duration-300 hover:scale-110;
+    filter: drop-shadow(0 4px 8px hsl(var(--primary) / 0.2));
+  }
+
+  .hero-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
