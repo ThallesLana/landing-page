@@ -1,11 +1,11 @@
-import PillNav from '../components/PillNav';
-import TechIcon from '../components/TechIcon';
-import TypeWriter from '../components/TypeWriter';
-import SplitText from '../components/SplitText';
-import DarkVeil from '../components/DarkVeil';
-import { Button } from '../components/ui/button';
+import PillNav from '@/components/PillNav';
+import TechIcon from '@/components/TechIcon';
+import TypeWriter from '@/components/TypeWriter';
+import SplitText from '@/components/SplitText';
+import DarkVeil from '@/components/DarkVeil';
+import { Button } from '@/components/ui/button';
 import { Mail, Linkedin, Github } from 'lucide-react';
-import profileImage from '../assets/profile.jpeg';
+import profileImage from '@/assets/profile.jpeg';
 import { DOMINATED_TECHS, LEARNING_TECHS } from '@/constants/techs';
 
 const Index = () => {

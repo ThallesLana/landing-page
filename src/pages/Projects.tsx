@@ -1,6 +1,6 @@
 import DarkVeil from '@/components/DarkVeil';
-import PillNav from '../components/PillNav';
-import ProjectCard from '../components/ProjectCard';
+import PillNav from '@/components/PillNav';
+import ProjectCard from '@/components/ProjectCard';
 import { PROJECTS } from '@/constants/projects';
 import { redirectToUrl } from '@/constants/socialMedia';
 
