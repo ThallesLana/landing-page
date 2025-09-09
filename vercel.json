@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/projetos/",
+      "destination": "/projetos",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
