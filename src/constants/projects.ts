@@ -3,11 +3,34 @@ import { SOCIAL_MEDIA } from "./socialMedia";
 
 export const PROJECTS: Project[] = [
   {
+    title: 'Economiza Ai - API',
+    description: 'É uma API REST desenvolvida com NestJS e TypeORM, que tem como objetivo ajudar usuários a controlarem suas finanças pessoais de forma simples, eficiente e segura.',
+    status: ProjectStatus.IN_PROGRESS,
+    technologies: ['NestJS', 'TypeORM', 'PostgreSQL'],
+    githubUrl: SOCIAL_MEDIA.github + 'economiza-ai',
+    liveUrl: 'https://economiza-ai.thalles-lana.dev/'
+  },
+  {
+    title: 'Todo Uai - API',
+    description: 'É uma API REST de lista de tarefas com aquele jeitinho mineiro: simples, direto e sem enrolação. Permite criar e gerenciar listas personalizadas, organizar tarefas com cores diferentes e marcar o que já foi feito com um clique.',
+    status: ProjectStatus.IN_PROGRESS,
+    technologies: ['NodeJS', 'Mongoose', 'MongoDB', 'Express', 'TypeScript', 'OAuth2'],
+    githubUrl: SOCIAL_MEDIA.github + 'todo-uai'
+  },
+  {
     title: 'Lanchin',
     description: 'Sistema completo para venda e delivery de comida, integrado ao WhatsApp.',
     technologies: ['PHP', 'MySQL', 'Bootstrap', 'JavaScript', 'jQuery', 'FontAwesome', 'Chart.js'],
     status: ProjectStatus.COMPLETED,
     liveUrl: 'https://lanchin.com.br',
+  },
+  {
+    title: 'Landing ADV',
+    description: 'Serviço de landing pages moderna e profissionais para agências de advocacia, com foco em conversão e captação de clientes no mercado jurídico.',
+    technologies: ['React', 'TailwindCSS', 'TypeScript', 'React Router'],
+    status: ProjectStatus.COMPLETED,
+    liveUrl: 'https://lp-advocacia.thalles-lana.dev/',
+    githubUrl: SOCIAL_MEDIA.github + 'landing-adv',
   },
   {
     title: 'Portfólio Responsivo',
@@ -58,19 +81,12 @@ export const PROJECTS: Project[] = [
     liveUrl: 'https://linktree.guiajuridica.com.br/'
   },
   {
-    title: 'Economiza Ai',
-    description: 'É uma API REST desenvolvida com NestJS e TypeORM, que tem como objetivo ajudar usuários a controlarem suas finanças pessoais de forma simples, eficiente e segura.',
-    status: ProjectStatus.IN_PROGRESS,
-    technologies: ['NestJS', 'TypeORM', 'PostgreSQL'],
-    githubUrl: SOCIAL_MEDIA.github + 'economiza-ai'
-  },
-  {
     title: 'Health Leek',
     description: 'Freelancer feito para um TCC que explica os tipos de lesões em pacientes de doenças crônicas e principais orientações e tratamentos.',
     status: ProjectStatus.COMPLETED,
     technologies: ['HTML', 'CSS', 'JavaScript'],
     githubUrl: SOCIAL_MEDIA.github + 'health-leek',
-    liveUrl: 'https://health-leek.thalles-lana.dev/'
+    liveUrl: 'https://healthleek.thalles-lana.dev/'
   },
   {
     title: 'Github Explorer',
