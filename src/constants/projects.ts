@@ -13,9 +13,26 @@ export const PROJECTS: Project[] = [
   {
     title: 'Todo Uai - API',
     description: 'É uma API REST de lista de tarefas com aquele jeitinho mineiro: simples, direto e sem enrolação. Permite criar e gerenciar listas personalizadas, organizar tarefas com cores diferentes e marcar o que já foi feito com um clique.',
-    status: ProjectStatus.IN_PROGRESS,
+    status: ProjectStatus.COMPLETED,
     technologies: ['NodeJS', 'Mongoose', 'MongoDB', 'Express', 'TypeScript', 'OAuth2'],
-    githubUrl: SOCIAL_MEDIA.github + 'todo-uai'
+    githubUrl: SOCIAL_MEDIA.github + 'api-todo-uai',
+    liveUrl: 'https://api-todo-uai.thalles-lana.dev/'
+  },
+  {
+    title: 'Todo Uai - App',
+    description: 'App web de lista de tarefas feito em React: crie listas personalizadas, organize por cores e conclua tarefas com um clique — simples, rápido e com aquele jeitinho mineiro.',
+    status: ProjectStatus.COMPLETED,
+    technologies: ['React', 'TypeScript', 'React Router', 'TailwindCSS', 'Vite'],
+    githubUrl: SOCIAL_MEDIA.github + 'app-todo-uai',
+    liveUrl: 'https://app-todo-uai.thalles-lana.dev/'
+  },
+  {
+    title: 'Todo Uai - Landing Page',
+    description: 'Landing page do Todo Uai: apresenta o app, destaca os principais recursos e direciona para uso — tudo com um visual leve e direto.',
+    status: ProjectStatus.COMPLETED,
+    technologies: ['React', 'TypeScript', 'React Router', 'TailwindCSS', 'Vite'],
+    githubUrl: SOCIAL_MEDIA.github + 'todo-uai',
+    liveUrl: 'https://todo-uai.thalles-lana.dev/'
   },
   {
     title: 'Lanchin',
