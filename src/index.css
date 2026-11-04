@@ -1,178 +1,448 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* Design system inspirado no portfolio original do Thalles Lana - thalles-lana.dev
-Todas as cores devem ser HSL.
-*/
+/* ── Design tokens ─────────────────────────────────────────────── */
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 15%;
+@theme {
+  /*
+   * Paleta Minas: pedra-sabão, tinta preta e o vermelho da bandeira de Minas.
+   * Fundo claro; o vermelho é só para o essencial (botão principal, tarja do H1, 1º adesivo).
+   */
+  /* Vermelho da bandeira: preenchimentos, foco e bordas (3.8:1 na pedra). */
+  --color-accent: #d21f2f;
+  /* Vermelho como texto: 5.4:1 na pedra, 6.9:1 no papel. */
+  --color-accent-deep: #a8121f;
+  /* Texto sobre o vermelho: 5.3:1. */
+  --color-on-accent: #ffffff;
+  /* Pedra-sabão: fundo principal. */
+  --color-canvas: #dadbd4;
+  /* Pedra mais clara: seções alternadas, cards e painéis. */
+  --color-surface: #e8e9e3;
+  /* Papel: cards claros, adesivos, botão secundário. */
+  --color-surface-2: #f5f5f1;
+  /* Tinta: contornos, sombras duras e o adesivo preto. */
+  --color-ink: #151614;
+  /* Borda de card, chip e campo de formulário (3.8:1 na pedra). */
+  --color-line: #6a6d66;
+  --color-fg: #151614;
+  --color-muted: #4b4e48;
+  /* Só para texto grande (≥ 24px): 3.8:1 na pedra. */
+  --color-subtle: #6a6d66;
+  /* Só decorativo (divisórias): não passa AA para texto. */
+  --color-faint: #b9bbb3;
+  --color-success: #1e6e35;
+  --color-danger: #b42318;
+  --color-warning: #9a4a06;
+  --color-whatsapp: #25d366;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+  --font-display: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
 
-    /* Sistema de cores roxo/magenta inspirado no design original */
-    --primary: 295 100% 35%;
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 300 65% 55%;
-    --primary-dark: 290 100% 25%;
+  /* Sombras duras, sem desfoque. */
+  --shadow-hard-sm: 3px 3px 0 var(--color-ink);
+  --shadow-hard: 5px 5px 0 var(--color-ink);
+  --shadow-hard-lg: 8px 8px 0 var(--color-ink);
 
-    --secondary: 320 30% 85%;
-    --secondary-foreground: 295 100% 35%;
-
-    --muted: 300 20% 90%;
-    --muted-foreground: 295 15% 45%;
-
-    --accent: 315 80% 60%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 300 20% 88%;
-    --input: 300 20% 88%;
-    --ring: 295 100% 35%;
-
-    /* Gradientes principais */
-    --gradient-primary: linear-gradient(119deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    --gradient-hero: linear-gradient(163deg, hsl(240 38% 13%) 0%, rgb(9, 9, 121) 35%, rgba(0, 212, 255, 1) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.1), hsl(300 30% 95%));
-
-    /* Sombras elegantes */
-    --shadow-elegant: 0 20px 40px -12px hsl(295 100% 35% / 0.25);
-    --shadow-glow: 0 0 60px hsl(315 80% 60% / 0.4);
-    --shadow-card: 0 8px 32px hsl(295 50% 50% / 0.15);
-
-    /* Animações */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-
-    --button-color: #090979;
-  }
-
-  .dark {
-    --background: 290 100% 8%;
-    --foreground: 0 0% 95%;
-
-    --card: 295 50% 12%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 295 50% 12%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 315 80% 70%;
-    --primary-foreground: 295 100% 8%;
-    --primary-light: 320 70% 75%;
-    --primary-dark: 310 85% 60%;
-
-    --secondary: 295 30% 20%;
-    --secondary-foreground: 315 80% 70%;
-
-    --muted: 295 20% 25%;
-    --muted-foreground: 300 15% 65%;
-
-    --accent: 320 75% 65%;
-    --accent-foreground: 295 100% 8%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 95%;
-
-    --border: 295 30% 25%;
-    --input: 295 30% 25%;
-    --ring: 315 80% 70%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(295 100% 25%), hsl(315 80% 45%));
-    --gradient-hero: linear-gradient(163deg, hsl(240 38% 8%) 0%, hsl(318 81% 25%) 76%, hsl(255 42% 6%) 92%);
-    --gradient-card: linear-gradient(145deg, hsl(295 50% 15%), hsl(300 30% 20%));
-
-    --shadow-elegant: 0 20px 40px -12px hsl(295 100% 15% / 0.6);
-    --shadow-glow: 0 0 60px hsl(315 80% 40% / 0.5);
-    --shadow-card: 0 8px 32px hsl(295 80% 20% / 0.4);
-  }
+  --ease-pop: cubic-bezier(0.3, 1.6, 0.5, 1);
 }
 
+/* ── Base ──────────────────────────────────────────────────────── */
+
 @layer base {
-  * {
-    @apply border-border;
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--color-canvas);
+    color: var(--color-fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
   }
 
-  html {
-    scroll-behavior: smooth;
+  h1,
+  h2 {
+    font-family: var(--font-display);
+  }
+
+  /* A Martian Mono é larga; estreitada fica do tamanho das outras mono. */
+  .font-mono,
+  .chip {
+    font-stretch: 87.5%;
+  }
+
+  /* O preflight do Tailwind 4 tira o cursor de mão dos botões; aqui ele volta. */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
+
+  /* Compensa a navbar fixa ao navegar por âncora. */
+  [id] {
+    scroll-margin-top: 84px;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Sobre o vermelho o anel fica preto; sobre o papel, vermelho escuro. */
+  .on-accent :focus-visible {
+    outline-color: var(--color-ink);
+  }
+  .on-light :focus-visible {
+    outline-color: var(--color-accent-deep);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
   }
 }
 
-/* Dark Veil animations */
-@keyframes darkVeilMove {
-  0% {
-    transform: translateX(0) translateY(0) scale(1);
-  }
-  50% {
-    transform: translateX(-10px) translateY(5px) scale(1.05);
-  }
-  100% {
-    transform: translateX(5px) translateY(-10px) scale(0.95);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
+/* ── Componentes globais ───────────────────────────────────────── */
 
 @layer components {
-  .gradient-text {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 3px solid var(--color-ink);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-hard-sm);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      transform 0.08s ease,
+      box-shadow 0.08s ease;
+  }
+  @media (min-width: 640px) {
+    .btn {
+      min-height: 52px;
+      padding: 13px 24px;
+    }
+  }
+  .btn:hover:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--color-ink);
+  }
+  .btn:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  /* Sombra maior só nos CTAs principais (hero). */
+  .btn-lg {
+    box-shadow: 6px 6px 0 var(--color-ink);
+  }
+  .btn-lg:hover:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--color-ink);
   }
 
-  .glass-card {
-    @apply backdrop-blur-xl;
-    background: var(--gradient-card);
-    border: 1px solid hsl(var(--border) / 0.2);
-    box-shadow: var(--shadow-card);
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+  .btn-outline {
+    background: var(--color-surface-2);
+    color: var(--color-ink);
+  }
+  .btn-dark {
+    background: var(--color-ink);
+    color: var(--color-surface-2);
+  }
+  .btn-whatsapp {
+    background: var(--color-whatsapp);
+    color: var(--color-ink);
   }
 
-  .tech-icon {
-    @apply transition-all duration-300 hover:scale-110;
-    filter: drop-shadow(0 4px 8px hsl(var(--primary) / 0.2));
+  /* Subtítulo de bloco dentro de uma seção (ex.: "Formação e cursos"). */
+  .section-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-fg);
   }
 
-  .hero-glow {
-    box-shadow: var(--shadow-glow);
+  /* Card com contorno e sombra dura. */
+  .card {
+    border: 3px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-hard);
+  }
+  /* Card com link dentro: só a borda acende, sem levantar. */
+  .card-hover {
+    transition: border-color 0.15s ease;
+  }
+  .card-hover:hover {
+    border-color: var(--color-accent);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-line);
+    background: var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .chip-accent {
+    border-color: var(--color-ink);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .link-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-accent-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
+
+  /* Adesivos do hero: "colam" com um pop quando ganham `.on`. É a única animação automática. */
+  .sticker {
+    border: 3px solid var(--color-ink);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hard);
+    padding: 18px 20px;
+    font-weight: 500;
+    line-height: 1.45;
+    transform: rotate(var(--tilt, 0deg));
+  }
+  .sticker-pop {
+    opacity: 0;
+    transform: rotate(var(--tilt, 0deg)) scale(1.25);
+    transition:
+      opacity 0.2s ease,
+      transform 0.35s var(--ease-pop);
+  }
+  .sticker-pop.on {
+    opacity: 1;
+    transform: rotate(var(--tilt, 0deg)) scale(1);
+  }
+}
+
+/* ── Intro ─────────────────────────────────────────────────────── */
+
+/*
+ * Abertura de 1.95s (ver `layout/Intro.tsx`). Só aparece com `data-intro="on"` no <html>,
+ * que o script do `index.html` liga na primeira visita. Linha do tempo:
+ *   0.10–0.55  contorno se desenha
+ *   0.45–0.85  vermelho sobe de baixo para cima
+ *   0.85–1.10  carimbo: inclina com sombra dura
+ *   0.95–1.36  três adesivos colam
+ *   1.35–1.65  triângulo cresce até cobrir a tela
+ *   1.65–1.95  a tela vermelha se abre de cima para baixo e revela o site
+ */
+.intro {
+  display: none;
+}
+:root[data-intro='on'] .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--color-canvas);
+  cursor: pointer;
+  animation:
+    intro-flood 0s linear 1.55s forwards,
+    intro-wipe 0.3s cubic-bezier(0.7, 0, 0.3, 1) 1.65s forwards;
+}
+.intro-mark {
+  width: min(46vmin, 260px);
+  height: auto;
+  overflow: visible;
+}
+.intro-stamp,
+.intro-grow,
+.intro-shadow,
+.intro-fill,
+.intro-note {
+  transform-box: fill-box;
+}
+.intro-stamp {
+  transform-origin: 50% 66%;
+  animation: intro-stamp 0.25s var(--ease-pop) 0.85s both;
+}
+.intro-grow {
+  /* Centro do triângulo (2/3 da altura a partir do vértice): crescer daqui cobre a tela de vermelho. */
+  transform-origin: 50% 66%;
+  animation: intro-grow 0.3s cubic-bezier(0.6, 0, 0.9, 0.4) 1.35s both;
+}
+.intro-outline {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  animation: intro-draw 0.45s cubic-bezier(0.6, 0, 0.3, 1) 0.1s both;
+}
+.intro-fill {
+  fill: var(--color-accent);
+  transform-origin: 50% 100%;
+  animation: intro-fill 0.4s cubic-bezier(0.3, 0, 0.2, 1) 0.45s both;
+}
+.intro-shadow {
+  fill: var(--color-ink);
+  animation: intro-shadow 0.25s var(--ease-pop) 0.85s both;
+}
+.intro-note {
+  fill: var(--color-surface-2);
+  stroke: var(--color-ink);
+  stroke-width: 4px;
+  transform-origin: center;
+  animation:
+    intro-note 0.25s var(--ease-pop) both,
+    intro-fade 0.12s linear 1.33s forwards;
+}
+.intro-note-1 {
+  --tilt: -8deg;
+  animation-delay: 0.95s, 1.33s;
+}
+.intro-note-2 {
+  --tilt: 6deg;
+  animation-delay: 1.03s, 1.33s;
+}
+.intro-note-3 {
+  --tilt: -4deg;
+  animation-delay: 1.11s, 1.33s;
+}
+
+@keyframes intro-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes intro-fill {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes intro-shadow {
+  from {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(9px, 9px);
+  }
+}
+@keyframes intro-stamp {
+  from {
+    transform: rotate(0deg) scale(1.08);
+  }
+  to {
+    transform: rotate(-5deg) scale(1);
+  }
+}
+@keyframes intro-note {
+  from {
+    opacity: 0;
+    transform: rotate(var(--tilt)) scale(1.6);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--tilt)) scale(1);
+  }
+}
+@keyframes intro-fade {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes intro-grow {
+  to {
+    transform: scale(45);
+  }
+}
+@keyframes intro-flood {
+  to {
+    background: var(--color-accent);
+  }
+}
+@keyframes intro-wipe {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(100% 0 0 0);
+    visibility: hidden;
+  }
+}
+
+/* ── Movimento reduzido ────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  :root[data-intro='on'] .intro {
+    display: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .sticker-pop {
+    opacity: 1;
+    transform: rotate(var(--tilt, 0deg));
   }
 }
