@@ -1,31 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thalles Fernandes de Lana - Desenvolvedor Full Stack</title>
-    <meta name="description" content="Especialista em desenvolvimento web Full Stack com HTML5, CSS3, JavaScript, PHP, Laravel e MySQL. Portfolio de projetos e tecnologias." />
-    <meta name="author" content="Thalles Fernandes de Lana" />
-    <meta name="keywords" content="desenvolvedor full stack, PHP, Laravel, JavaScript, HTML5, CSS3, MySQL, desenvolvimento web" />
+    <meta name="theme-color" content="#DADBD4" />
+    <meta name="color-scheme" content="light" />
 
-    <meta property="og:title" content="Thalles Fernandes de Lana - Desenvolvedor Full Stack" />
-    <meta property="og:description" content="Especialista em desenvolvimento web Full Stack com HTML5, CSS3, JavaScript, PHP, Laravel e MySQL." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://thalles-lana.dev/images/profile.jpeg" />
+    <!--
+      Intro (ver src/components/layout/Intro.tsx): liga só na primeira visita a cada 30 dias
+      e nunca com movimento reduzido. Roda antes do CSS para não piscar o site antes da abertura.
+    -->
+    <script>
+      ;(function () {
+        var on = false
+        try {
+          var key = 'thalles-lana:intro'
+          var last = Number(localStorage.getItem(key)) || 0
+          var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+          on = !reduce && Date.now() - last > 30 * 864e5
+          if (on) localStorage.setItem(key, String(Date.now()))
+        } catch (e) {}
+        document.documentElement.dataset.intro = on ? 'on' : 'off'
+      })()
+    </script>
+
+    <title>Thalles Lana · Engenheiro de software full stack</title>
+    <meta
+      name="description"
+      content="Engenheiro de software full stack com mais de 5 anos em TypeScript, PHP, Python e PostgreSQL. Faço sistemas web completos, da análise de requisitos ao deploy, e integro IA a produtos com LLMs e MCP."
+    />
+    <meta name="author" content="Thalles Fernandes de Lana" />
+    <link rel="canonical" href="https://thalles-lana.dev/" />
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Thalles Lana" />
+    <meta property="og:url" content="https://thalles-lana.dev/" />
+    <meta property="og:title" content="Thalles Lana · Engenheiro de software full stack" />
+    <meta
+      property="og:description"
+      content="Sistemas web completos, da ideia ao sistema em produção. Mais de 5 anos como engenheiro de software full stack, com foco em IA aplicada."
+    />
+    <meta property="og:image" content="https://thalles-lana.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Thalles Lana, engenheiro de software full stack: sistemas que aguentam produção"
+    />
+    <meta property="profile:first_name" content="Thalles" />
+    <meta property="profile:last_name" content="Fernandes de Lana" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Thalles Fernandes de Lana - Desenvolvedor Full Stack" />
-    <meta name="twitter:description" content="Especialista em desenvolvimento web Full Stack com HTML5, CSS3, JavaScript, PHP, Laravel e MySQL." />
-    <meta name="twitter:image" content="https://thalles-lana.dev/images/profile.jpeg" />
+    <meta name="twitter:title" content="Thalles Lana · Engenheiro de software full stack" />
+    <meta
+      name="twitter:description"
+      content="Sistemas web completos, da ideia ao sistema em produção."
+    />
+    <meta name="twitter:image" content="https://thalles-lana.dev/og-image.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://thalles-lana.dev/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&family=Martian+Mono:wdth,wght@75..112.5,500..700&display=swap"
+      onload="
+        this.onload = null
+        this.rel = 'stylesheet'
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&family=Martian+Mono:wdth,wght@75..112.5,500..700&display=swap"
+      />
+    </noscript>
+
+    <noscript>
+      <style>
+        .sticker-pop {
+          opacity: 1;
+          transform: rotate(var(--tilt, 0deg));
+        }
+      </style>
+    </noscript>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Thalles Fernandes de Lana",
+        "alternateName": "Thalles Lana",
+        "jobTitle": "Engenheiro de software sênior",
+        "description": "Engenheiro de software full stack: sistemas web completos, da análise de requisitos ao deploy, com foco em IA aplicada.",
+        "url": "https://thalles-lana.dev/",
+        "image": "https://thalles-lana.dev/og-image.png",
+        "email": "mailto:contato@thalles-lana.dev",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Muriaé",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "worksFor": { "@type": "Organization", "name": "B2ML Sistemas" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Uniamérica" },
+          { "@type": "CollegeOrUniversity", "name": "FASM" }
+        ],
+        "knowsAbout": [
+          "TypeScript",
+          "Node.js",
+          "NestJS",
+          "Python",
+          "FastAPI",
+          "PHP",
+          "Laravel",
+          "PostgreSQL",
+          "Docker",
+          "AWS",
+          "React",
+          "Angular",
+          "Claude API",
+          "Model Context Protocol (MCP)",
+          "IA aplicada",
+          "Integração de pagamentos"
+        ],
+        "knowsLanguage": ["pt-BR", "en"],
+        "sameAs": ["https://www.linkedin.com/in/thalles-lana/", "https://github.com/ThallesLana"]
+      }
+    </script>
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app"></div>
+    <script prerender type="module" src="/src/main.tsx"></script>
   </body>
 </html>

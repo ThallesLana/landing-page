@@ -1,0 +1,101 @@
+import type { ExperienciaContent } from '@/types/content'
+
+export const experiencia: ExperienciaContent = {
+  title: 'Mais de 5 anos construindo sistemas de ponta a ponta.',
+  description: 'Resumo da minha trajetória. O currículo completo está em PDF.',
+  currentLabel: 'Atual',
+  jobs: [
+    {
+      role: 'Engenheiro de Software Sênior',
+      company: 'B2ML Sistemas',
+      location: 'Remoto',
+      period: 'jul/2022 – atual',
+      current: true,
+      bullets: [
+        'Promovido de Pleno a Sênior em dez/2024, assumindo a liderança técnica de projetos estratégicos.',
+        'Por 2 anos, atuei num sistema hospitalar de alcance nacional em Angola: migrei o legado em PHP para Laravel, estruturei microsserviços, APIs e banco de dados e entreguei novos módulos com prazos curtos.',
+        'Hoje atuo como full stack em projetos de diferentes clientes: análise de requisitos, desenho de telas, modelagem de banco, back-end e front-end.',
+        'Otimizo desempenho: reduzi em até 40% o tempo de resposta das aplicações e em 50% o tempo de carregamento de sistemas legados, revisando consultas SQL e NoSQL e chamadas de API repetidas.',
+        'Automatizei processos internos que economizam mais de 10h semanais da equipe de desenvolvimento.',
+        'Escrevo código tipado de ponta a ponta, com Clean Code, SOLID e arquitetura em camadas; containerizo com Docker e apoio o deploy na AWS.',
+      ],
+      stack: [
+        'Python',
+        'FastAPI',
+        'TypeScript',
+        'NestJS',
+        'Laravel',
+        'Angular',
+        'React',
+        'PostgreSQL',
+        'MySQL',
+        'Docker',
+        'AWS',
+        'NGINX',
+      ],
+    },
+    {
+      role: 'Desenvolvedor Web',
+      company: 'Faminas',
+      location: 'Muriaé, MG',
+      period: 'dez/2021 – jul/2022',
+      bullets: [
+        'Desenvolvi sistemas web internos com front-end em React e automações de processos acadêmicos, reduzindo em 40% o tempo gasto em tarefas repetitivas.',
+        'Integrei sistemas internos à API do Microsoft Teams, reduzindo em 30% o tempo de acesso às aulas EAD.',
+      ],
+      stack: ['React', 'Angular', 'TypeScript', 'PHP', 'Laravel', 'MySQL', 'Microsoft Teams API'],
+    },
+    {
+      role: 'Desenvolvedor Web',
+      company: 'Closmaq',
+      location: 'Muriaé, MG',
+      period: 'jul/2021 – dez/2021',
+      bullets: [
+        'Desenvolvi uma plataforma web de delivery que cresceu mais de 200% em adoção no primeiro trimestre.',
+        'Melhorei a usabilidade e a interface, elevando em 25% a conversão de pedidos.',
+        'Corrigi problemas estruturais, otimizei a performance e mantive o banco MySQL da aplicação.',
+      ],
+      stack: ['PHP', 'Laravel', 'JavaScript', 'MySQL'],
+    },
+    {
+      role: 'Estagiário de TI',
+      company: 'Prefeitura de Muriaé',
+      location: 'Muriaé, MG',
+      period: 'mai/2019 – dez/2020',
+      bullets: [
+        'Participei do desenvolvimento da plataforma Educa Muriaé em Casa, que garantiu o ensino remoto a mais de 8 mil alunos da rede municipal durante a pandemia.',
+        'Otimizei consultas SQL e scripts PHP, reduzindo em 35% o tempo de carregamento do sistema.',
+        'Mantive os sistemas administrativos das escolas municipais, incluindo migração e organização de dados.',
+      ],
+      stack: ['PHP', 'JavaScript', 'MySQL'],
+    },
+  ],
+  educationTitle: 'Formação e cursos',
+  education: [
+    {
+      title: 'MBA em Web3',
+      institution: 'Uniamérica',
+      period: '2025 – 2026',
+    },
+    {
+      title: 'Pós-graduação em Engenharia de Software',
+      institution: 'Uniamérica',
+      period: '2023 – 2024',
+    },
+    {
+      title: 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
+      institution: 'FASM',
+      period: '2019 – 2021',
+    },
+    {
+      title: '12 cursos de IA aplicada: Claude API, MCP, Claude Code e agent skills',
+      institution: 'Anthropic',
+      period: '2026',
+      minor: true,
+    },
+  ],
+  languagesTitle: 'Idiomas',
+  languages: ['Português (nativo)', 'Inglês (intermediário, B1)'],
+  downloadResume: 'Baixar currículo (PDF)',
+  linkedin: 'Ver no LinkedIn',
+}
